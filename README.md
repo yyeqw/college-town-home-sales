@@ -1,46 +1,24 @@
-# [Your site's title]
+# The College-Town Market
 
-## Start here (delete this section before you submit)
-
-This repository is your starting point for the Home Sales case. It already holds the dataset, its description sheet, project instructions for your AI coding agent, and outlines of the README and agent log that the case asks for.
-
-1. **Turn on GitHub Pages.** In this repository, open **Settings**, then **Pages**. Under "Build and deployment," set **Source** to **GitHub Actions**. GitHub may suggest workflows to add. Skip them: this repository already has one, `.github/workflows/pages.yml`.
-2. **Publish for the first time.** Open the **Actions** tab, choose **Publish site to GitHub Pages** in the sidebar, click **Run workflow**, then click **Run workflow** again to confirm. If the tab already shows a failed run from when you created the repository, that's expected: Pages wasn't turned on yet. When the new run shows a green check, your site is at `https://your-username.github.io/your-repo-name/`. It shows a placeholder page until you replace `index.html`.
-
-    From then on, every push to the main branch publishes the site within a few minutes. If the live site doesn't show a change, open the **Actions** tab. A red X means the publish failed, and the run's log says why.
-3. **Open the repository in your AI coding agent.** Its project instructions are in `AGENTS.md`. If your agent reads its instructions from a file with a different name, check its documentation and copy `AGENTS.md` to that name. Add to the instructions as you learn what your agent needs.
-4. **Read `docs/data_description_sheet.md`** before you ask the agent for any analysis.
-5. **Build in small steps,** as the setup guide describes. Add an entry to `AGENT_LOG.md` each time you work with the agent.
-6. **Fill in every section below** before you submit.
-
-| Path | What it is |
-|---|---|
-| `index.html` | A placeholder page. Replace it with your site. |
-| `data/college_town_home_sales.csv` | The dataset, version 1.0: 35,442 rows. Your site reads this file. |
-| `data/college_town_home_sales.xlsx`, `.sqlite`, `.duckdb`, `.parquet` | The same data in Excel, SQLite, DuckDB and Parquet formats, with identical values |
-| `docs/data_description_sheet.md` | What every column means, and five problems in the data |
-| `AGENTS.md` | Project instructions for your AI coding agent |
-| `AGENT_LOG.md` | Your agent log |
-| `scripts/` | Scripts that make smaller data files for the site |
-| `.github/workflows/pages.yml` | Publishes the site to GitHub Pages each time you push to main. It publishes your files as they are. If you switch to a framework that needs a build step, have your agent update it. |
-
-Don't edit any of the five dataset files. Your site needs only the CSV file. The other formats make it easier to check numbers a second way, for example with a pivot table in Excel or a SQL query on the SQLite file. In SQLite and DuckDB, the table is named `home_sales`.
+An interactive comparison of completed home sales in college towns.
 
 ## What this site is for
 
-_Replace this line with your site's question and audience, or a short description of the site._
+The College-Town Market helps students, families, and other readers compare typical home sale prices across university areas in the dataset. It answers: **How do sale prices vary across these college towns?** The comparison uses each city's median sale price so a small number of unusually high or low sales have less influence than they would on an average.
 
 ## Live site
 
-https://your-username.github.io/your-repo-name/
+[Open The College-Town Market](https://yyeqw.github.io/college-town-home-sales/)
 
 ## Data notes
 
-_Replace this line. Say which rows you left out and why, and how each figure on the site is defined. "Five things that will bite you" in the description sheet lists the problems to cover._
+The site reads the provided data/college_town_home_sales.csv file. It excludes sales below $10,000 because the data description identifies implausibly low sale prices; 40 rows fall below this threshold, leaving 35,402 eligible sales. The page reports each city's median sale price and eligible sale count, plus the median across all eligible sales in the selected view. University and city search controls filter the displayed cities and recalculate the summary statistics.
+
+The dataset represents completed sales collected in March 2026. It is not a feed of current listings or appraisals. The data description also warns that home_type is unreliable, street addresses are not unique identifiers, and blank days-on-market values must not be treated as zero. This site does not use those fields. Values are based on the supplied dataset and have not been independently verified.
 
 ## Tools we used
 
-_Replace this line with your AI coding agent or agents, and any libraries and other tools you used._
+OpenAI Codex assisted with reading the project instructions and data description, writing the HTML, CSS, and JavaScript page, and documenting the work. The site uses plain HTML, CSS, and JavaScript with no external libraries; it parses the supplied CSV in the browser. GitHub Pages publishes the site through the repository's Actions workflow.
 
 ## Citation
 
@@ -48,4 +26,4 @@ College-town home sales dataset, version 1.0 (2026). University of Illinois-Delo
 
 ## Who did what
 
-_For teams: replace this line with each member's name and what they did. If you worked alone, delete this section._
+Daiming Ye set the project direction and reviewed the finished site. OpenAI Codex assisted with implementation and documentation.
